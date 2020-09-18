@@ -33,3 +33,16 @@ pipelines:
             - name: art_v
           inputResources:
             - name: vijay_gitRepo 
+            
+      - name: To_Push_Docker_Image
+        type: DockerPush
+        configuration:
+#           environmentVariables: # optional
+#             JFROG_CLI_BUILD_NAME: "PIPE-f2387"
+#             JFROG_CLI_BUILD_NUMBER: 2387
+          autoPublishBuildInfo: false #IMPORTANGT******************* : if this is true then only we need outputResource in DockerPush and no need of publishBuildInfo step
+          targetRepository: docker-local #required
+          integrations:
+            - name: art_v 
+          inputSteps:
+            - name: build_Docker_Image            
