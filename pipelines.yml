@@ -21,13 +21,13 @@ pipelines:
       - name: build_Docker_Image
         type: DockerBuild
         configuration:
-          environmentVariables: # optional
-            JFROG_CLI_BUILD_NAME: "PIPE-f2387"
-            JFROG_CLI_BUILD_NUMBER: 2387
+#           environmentVariables: # optional
+#             JFROG_CLI_BUILD_NAME: "PIPE-f2387"
+#             JFROG_CLI_BUILD_NUMBER: 2387
           dockerFileLocation: .
           dockerFileName: Dockerfile
 #           dockerImageName: pipe-master.jfrog.info:8082/docker-local/node 
-          dockerImageName: 192.168.11.4:8082/docker-local/node
+          dockerImageName: 192.168.33.10:8082/docker-local/node
           dockerImageTag: latest
           integrations:
             - name: art_v
