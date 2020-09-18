@@ -34,7 +34,7 @@ pipelines:
           inputResources:
             - name: vijay_gitRepo 
             
-      - name: To_Push_Docker_Image
+      - name: Push_Docker_Image
         type: DockerPush
         configuration:
 #           environmentVariables: # optional
