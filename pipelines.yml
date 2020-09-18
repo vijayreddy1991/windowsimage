@@ -33,4 +33,3 @@ pipelines:
             - name: art_v
           inputResources:
             - name: vijay_gitRepo 
-            - name: connecting_resource
