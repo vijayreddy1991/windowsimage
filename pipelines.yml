@@ -1,0 +1,36 @@
+resources:
+      
+  - name: vijay_gitRepo
+    type: GitRepo
+    configuration:
+      path: vijayreddy1991/windowsimage
+      gitProvider: vijay
+      branches: 
+        include: master
+
+pipelines:
+  - name: Master_test_pipe
+    configuration:
+      nodePool: win_2019
+#       environmentVariables:
+#         readOnly:
+#           JFROG_CLI_BUILD_NAME: "PIPE-f2387"
+#           JFROG_CLI_BUILD_NUMBER: 2387
+    steps:
+
+      - name: build_Docker_Image
+        type: DockerBuild
+        configuration:
+          environmentVariables: # optional
+            JFROG_CLI_BUILD_NAME: "PIPE-f2387"
+            JFROG_CLI_BUILD_NUMBER: 2387
+          dockerFileLocation: .
+          dockerFileName: Dockerfile
+#           dockerImageName: pipe-master.jfrog.info:8082/docker-local/node 
+          dockerImageName: 192.168.11.4:8082/docker-local/node
+          dockerImageTag: latest
+          integrations:
+            - name: art_v
+          inputResources:
+            - name: vijay_gitRepo 
+            - name: connecting_resource
