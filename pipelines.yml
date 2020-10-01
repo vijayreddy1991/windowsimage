@@ -27,7 +27,7 @@ pipelines:
           dockerFileLocation: .
           dockerFileName: Dockerfile
 #           dockerImageName: pipe-master.jfrog.info:8082/docker-local/node 
-          dockerImageName: dev.jfrog-pipelines.com/docker-local/node
+          dockerImageName: dev.jfrog-pipelines.com:8082/docker-local/node
           dockerImageTag: latest
           integrations:
             - name: art_v
