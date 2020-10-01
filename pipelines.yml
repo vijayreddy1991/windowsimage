@@ -11,7 +11,7 @@ resources:
 pipelines:
   - name: vijay_test_pipe
     configuration:
-      nodePool: win_2019
+      nodePool: windows_nodepool
 #       environmentVariables:
 #         readOnly:
 #           JFROG_CLI_BUILD_NAME: "PIPE-f2387"
