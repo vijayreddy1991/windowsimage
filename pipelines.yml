@@ -45,4 +45,23 @@ pipelines:
           integrations:
             - name: art_v 
           inputSteps:
-            - name: build_Docker_Image            
+            - name: build_Docker_Image    
+      - name: dockerPublish
+        type: PublishBuildInfo
+        configuration:
+          inputSteps:
+            - name: Push_Docker_Image
+          outputResources:
+            - name: docker_Build_vijay
+      - name: dockerPromote
+        type: PromoteBuild
+        configuration:
+          targetRepository: test-generic-local
+          inputSteps:
+            - name: dockerPublish
+          integrations:
+            - name: art_v
+          inputResources:
+            - name: docker_Build_vijay
+          outputResources:
+            - name: docker_build_promote_vijay            
