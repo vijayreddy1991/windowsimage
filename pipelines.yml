@@ -14,14 +14,7 @@ resources:
       sourceArtifactory: art_v
       buildNumber: 1
       buildName: dockertest
-      
-  - name: docker_Build_vijay
-    type: GitRepo
-    configuration:
-      path: vijayreddy1991/nativesteps
-      gitProvider: vijay
-      branches:
-        include: docker        
+            
 
 pipelines:
   - name: vijay_test_pipe
@@ -43,7 +36,7 @@ pipelines:
           dockerFileName: Dockerfile
 #           dockerImageName: pipe-master.jfrog.info:8082/docker-local/node 
 #           dockerImageName: pipelines.westus.cloudapp.azure.com:8082/docker-local/node
-          dockerImageName: pipelines.westus.cloudapp.azure.com:8082/docker-local/node
+          dockerImageName: u18.jfrog-pipelines.com//docker-local/node
           dockerImageTag: latest
           integrations:
             - name: art_v
@@ -62,22 +55,22 @@ pipelines:
             - name: art_v 
           inputSteps:
             - name: build_Docker_Image    
-      - name: dockerPublish
-        type: PublishBuildInfo
-        configuration:
-          inputSteps:
-            - name: Push_Docker_Image
-          outputResources:
-            - name: docker_Build_vijay
-      - name: dockerPromote
-        type: PromoteBuild
-        configuration:
-          targetRepository: test-generic-local
-          inputSteps:
-            - name: dockerPublish
-          integrations:
-            - name: art_v
-          inputResources:
-            - name: docker_Build_vijay
-          outputResources:
-            - name: docker_build_promote_vijay            
+#       - name: dockerPublish
+#         type: PublishBuildInfo
+#         configuration:
+#           inputSteps:
+#             - name: Push_Docker_Image
+#           outputResources:
+#             - name: docker_Build_vijay
+#       - name: dockerPromote
+#         type: PromoteBuild
+#         configuration:
+#           targetRepository: test-generic-local
+#           inputSteps:
+#             - name: dockerPublish
+#           integrations:
+#             - name: art_v
+#           inputResources:
+#             - name: docker_Build_vijay
+#           outputResources:
+#             - name: docker_build_promote_vijay            
