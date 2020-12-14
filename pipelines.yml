@@ -7,6 +7,21 @@ resources:
       gitProvider: vijay
       branches: 
         include: master
+        
+  - name: docker_build_promote_vijay
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art_v
+      buildNumber: 1
+      buildName: dockertest
+      
+  - name: docker_Build_vijay
+    type: GitRepo
+    configuration:
+      path: vijayreddy1991/nativesteps
+      gitProvider: vijay
+      branches:
+        include: docker        
 
 pipelines:
   - name: vijay_test_pipe
