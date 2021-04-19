@@ -38,7 +38,7 @@ pipelines:
           dockerFileName: Dockerfile
 #           dockerImageName: pipe-master.jfrog.info:8082/docker-local/node 
 #           dockerImageName: pipelines.westus.cloudapp.azure.com:8082/docker-local/node
-          dockerImageName: release1442.jfrogdev.org//docker-local/node
+          dockerImageName: release1442.jfrogdev.org/docker-local/node
           dockerImageTag: latest
           integrations:
             - name: art_v
