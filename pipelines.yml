@@ -4,7 +4,7 @@ resources:
     type: GitRepo
     configuration:
       path: vijayreddy1991/windowsimage
-      gitProvider: vijay
+      gitProvider: git_v
       branches: 
         include: master
         
@@ -38,7 +38,7 @@ pipelines:
           dockerFileName: Dockerfile
 #           dockerImageName: pipe-master.jfrog.info:8082/docker-local/node 
 #           dockerImageName: pipelines.westus.cloudapp.azure.com:8082/docker-local/node
-          dockerImageName: 10.90.110.73:8082/docker-local/node
+          dockerImageName: 'c7-install.jfrog-pipelines.com/docker-local/pipelines'
           dockerImageTag: latest
           integrations:
             - name: art_v
